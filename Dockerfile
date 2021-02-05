@@ -1,8 +1,6 @@
 FROM balenalib/raspberry-pi-alpine:latest
 
-RUN apk update
-RUN apk upgrade
-RUN apk add git -q
+RUN install_packages git
 
 VOLUME /homeassistant
 WORKDIR /homeassistant
