@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM balenalib/raspberry-pi-alpine:latest
 
 RUN apk update
 RUN apk upgrade
