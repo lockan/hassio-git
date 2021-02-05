@@ -2,9 +2,13 @@
 
 Just a simple git runner image.
 
-Uses `alpine:latest` as a base image and installs `git`.
+Uses `balenalib/raspberry-pi-alpine:latest` as a base image and installs `git`.
 
 Defines a volume `/homeassistant` to be used as a bind mount location.
+
+## QUICKLAUNCH
+
+`docker run -it -v /mnt/data/supervisor/homeassistant:/homeassistant lockan/hassio-git sh`
 
 ## Wait, but why?
 
