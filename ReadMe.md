@@ -36,5 +36,6 @@ I would recommend using the hass.io configurator to edit your configs, and only 
 1. ssh to the hass.io host on port 22222
 1. `$> login`
 1. `docker inspect homeassistant` to see the bind mount source paths for homeassistant. Look for the 'config' mount, note the host path. (e.g. /mnt/data/supervisor/homeassistant)
-1. `docker run -it -v /path/to/host/config:/homeassistant lockan/hassio-git -v /path/to/host/ssl:/ssl sh`
+1. Repeat the above - looking for the `ssl` mount. Again, take note of the path.
+1. `docker run -it -v /path/to/host/config:/homeassistant -v /path/to/host/ssl:/ssl lockan/hassio-git sh`
 1. Do git things as needed.
