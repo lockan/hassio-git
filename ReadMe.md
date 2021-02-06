@@ -17,7 +17,7 @@ Best for private/hobby/dev use only; Do not run in production environments!
 
 ## Other Setup
 
-- Need to store a github private deploy key under `/ssl` on the host called `deploy-hassio-git`
+- Need to store a github private deploy key under `/ssl` on the host called `deploy-hassio-git.key`
 - Public half of the key should be added to the target github repo as a deploy key
 - Mount the ssl folder to `/ssl` when running the container so github can access it.
 
