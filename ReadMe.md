@@ -6,6 +6,14 @@ Uses `balenalib/raspberry-pi-alpine:latest` as a base image and installs `git`.
 
 Defines a volume `/homeassistant` to be used as a bind mount location.
 
+## Wait, but why?
+
+I wanted a way to manage my hass.io config folder as a git repository, but hass.io has no package manager on the host os and does not pre-install git.
+
+But! hass.io does run docker.
+
+This runner container can be used to mount your hass.io config folder from the host and then run git operations like you normally would.
+
 ## QUICKLAUNCH
 
 `docker run -it -v /mnt/data/supervisor/homeassistant:/homeassistant -v /mnt/data/supervisor/ssl:/ssl lockan/hassio-git sh`
@@ -20,14 +28,6 @@ Best for private/hobby/dev use only; Do not run in production environments!
 - Need to store a github private deploy key under `/ssl` on the host called `deploy-hassio-git.key`
 - Public half of the key should be added to the target github repo as a deploy key
 - Mount the ssl folder to `/ssl` when running the container so github can access it.
-
-## Wait, but why?
-
-I wanted a way to manage my hass.io config folder as a git repository, but hass.io has no package manager on the host os and does not pre-install git.
-
-But! hass.io does run docker.
-
-This runner container can be used to mount your hass.io config folder from the host and then run git operations like you normally would.
 
 ## Usage
 
