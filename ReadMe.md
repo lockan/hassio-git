@@ -8,7 +8,18 @@ Defines a volume `/homeassistant` to be used as a bind mount location.
 
 ## QUICKLAUNCH
 
-`docker run -it -v /mnt/data/supervisor/homeassistant:/homeassistant lockan/hassio-git sh`
+`docker run -it -v /mnt/data/supervisor/homeassistant:/homeassistant -v /mnt/data/supervisor/ssl:/ssl lockan/hassio-git sh`
+
+## !! WARNING !!
+
+This thing has root access and runs as the root user. Use with caution. 
+Best for private/hobby/dev use only; Do not run in production environments! 
+
+## Other Setup
+
+- Need to store a github private deploy key under `/ssl` on the host called `deploy-hassio-git`
+- Public half of the key should be added to the target github repo as a deploy key
+- Mount the ssl folder to `/ssl` when running the container so github can access it.
 
 ## Wait, but why?
 
@@ -25,5 +36,5 @@ I would recommend using the hass.io configurator to edit your configs, and only 
 1. ssh to the hass.io host on port 22222
 1. `$> login`
 1. `docker inspect homeassistant` to see the bind mount source paths for homeassistant. Look for the 'config' mount, note the host path. (e.g. /mnt/data/supervisor/homeassistant)
-1. `docker run -it -v /path/to/host/config:/homeassistant lockan/hassio-git sh`
+1. `docker run -it -v /path/to/host/config:/homeassistant lockan/hassio-git -v /path/to/host/ssl:/ssl sh`
 1. Do git things as needed.
