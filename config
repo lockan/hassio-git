@@ -1,2 +1,2 @@
 Host github.com
-    IdentityFile /ssl/deploy-hassio-git 
+    IdentityFile /ssl/deploy-hassio-git.key
